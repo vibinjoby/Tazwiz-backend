@@ -18,11 +18,10 @@ async function sendMail(username, recepient) {
     let transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: process.env.PORT,
-      secure: false, // true for 465, false for other ports
+      secure: false,
       auth: {
-        //"punchme2020@gmail.com" "punch.me@2020"
         user: process.env.EMAIL,
-        pass: process.env.PASSWORD
+        pass: process.env.MAIL_PASSWORD
       }
     });
 
