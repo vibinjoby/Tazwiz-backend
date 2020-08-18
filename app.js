@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 //routes
 const register = require("./routes/register");
 const signin = require("./routes/login");
-const polls = require("./routes/addPost");
+const addPost = require("./routes/addPost");
 
 //Enabling cors
 app.use(cors());
@@ -17,8 +17,8 @@ app.use(
 );
 
 app.use(bodyParser.json());
-app.use("/register", signup);
+app.use("/register", register);
 app.use("/login", signin);
-app.use("/addPost", polls);
+app.use("/addPost", addPost);
 
 app.listen(process.env.PORT || 5000);
