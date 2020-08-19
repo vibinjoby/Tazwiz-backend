@@ -2,8 +2,8 @@ const mongo = require("mongoose");
 const bcrypt = require("bcrypt");
 
 // prod-mode
-//${process.env.USERNAME}
-//${process.env.PASSWORD}
+//${process.env.DB_USERNAME}
+//${process.env.DB_PASSWORD}
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0-acs6q.mongodb.net/online_poll?retryWrites=true&w=majority`;
 
 mongo
@@ -54,6 +54,8 @@ async function validateForSignIn(emailId, password) {
  * Saving the user details for signing up
  */
 async function createNewAccount(name, email, password) {
+  //Initialize the boolean to false
+  const isEmailConfirmed = false;
   //Generate salt for hashing
   const salt = await bcrypt.genSalt(10);
   // Hash the password before saving to DB
@@ -61,7 +63,8 @@ async function createNewAccount(name, email, password) {
   const users = await Users.create({
     name,
     email,
-    password: hashedPwd
+    password: hashedPwd,
+    isEmailConfirmed
   });
 
   await users.validate();
@@ -69,8 +72,18 @@ async function createNewAccount(name, email, password) {
   await users.save();
 }
 
+async function updateUserMailConfirmation(emailId) {
+  // Find the document with email and update the is email confirmed to true
+  const updatedData = await Users.findOneAndUpdate(
+    { email: emailId },
+    { isEmailConfirmed: true }
+  );
+  return updatedData;
+}
+
 module.exports = {
   checkEmailExists,
   validateForSignIn,
-  createNewAccount
+  createNewAccount,
+  updateUserMailConfirmation
 };
