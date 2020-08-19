@@ -51,4 +51,22 @@ router.post("/confirmationEmail", (req, res) => {
   }
 });
 
+router.get("/urlRedirect", (req, res) => {
+  res.writeHead(302, {
+    Location: "tazwiz://"
+    //add other headers here...
+  });
+  res.end();
+});
+
+router.post("/confirmUserRegistration/:username", (req, res) => {
+  try {
+    // Check if the username is present
+    // Confirm the user with successful registration
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
 module.exports = router;

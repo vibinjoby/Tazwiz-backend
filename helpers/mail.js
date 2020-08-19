@@ -7,6 +7,7 @@ async function sendMail(username, recepient) {
     var source = fs
       .readFileSync(process.env.PWD + "/views/mail.hbs", "utf-8")
       .toString();
+    console.log(source);
     const template = handlebars.compile(source);
 
     const replacements = {
@@ -16,8 +17,8 @@ async function sendMail(username, recepient) {
     const htmlToSend = template(replacements);
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.PORT,
+      host: "smtp.gmail.com",
+      port: "587",
       secure: false,
       auth: {
         user: process.env.EMAIL,
