@@ -55,10 +55,11 @@ router.post("/confirmationEmail", (req, res) => {
   }
 });
 
-router.get("/urlRedirect", (req, res) => {
+router.get("/urlRedirect/:openUrl", (req, res) => {
+  const { openUrl } = req.params;
+  //Navigate to the uri to the app based on the url params
   res.writeHead(302, {
-    Location: "tazwiz://"
-    //add other headers here...
+    Location: openUrl
   });
   res.end();
 });

@@ -10,7 +10,8 @@ async function sendMail(username, recepient) {
     const template = handlebars.compile(source);
 
     const replacements = {
-      username
+      username,
+      openUrl: `tazwiz://confirmation/${recepient}`
     };
 
     const htmlToSend = template(replacements);
