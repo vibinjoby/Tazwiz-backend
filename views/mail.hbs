@@ -30,6 +30,14 @@
   <!--[if !mso]><!-- -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
   <!--<![endif]-->
+  <script>
+    window.onload = function () {
+      document.getElementById("buton").onclick = function () {
+        document.getElementById("form1").submit();
+        return false; // cancel the actual link
+      }
+    }
+  </script>
   <style type="text/css">
     @media only screen and (max-width:600px) {
 
@@ -384,17 +392,11 @@
 <![endif]-->
                                   <!--[if !mso]><!-- --><span class="msohide es-button-border"
                                     style="border-style:solid;border-color:#1B2A2F;background:#10F459;border-width:0px;display:inline-block;border-radius:0px;width:auto;mso-hide:all">
-                                    <form action="https://tazwiz-backend.herokuapp.com/register/urlRedirect"
-                                      method="POST">
-                                      <input type="hidden" value="{{openUrl}}" name="openUrl" />
-                                      <input type="submit" class="es-button"
-                                        style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Oswald, sans-serif;font-size:12px;color:#FFFFFF;border-style:solid;border-color:#10F459;border-width:25px 40px 25px 40px;display:inline-block;background:#10F459;border-radius:0px;font-weight:bold;font-style:normal;line-height:14px;width:auto;text-align:center"
-                                        value="CONFIRM ACCOUNT" />
-                                      {{!-- <a href="https://tazwiz-backend.herokuapp.com/register/urlRedirect/"
-                                        class="es-button" target="_blank"
-                                        style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Oswald, sans-serif;font-size:12px;color:#FFFFFF;border-style:solid;border-color:#10F459;border-width:25px 40px 25px 40px;display:inline-block;background:#10F459;border-radius:0px;font-weight:bold;font-style:normal;line-height:14px;width:auto;text-align:center">CONFIRM
-                                        ACCOUNT</a> --}}
-                                    </form>
+
+                                    <a href="https://tazwiz-backend.herokuapp.com/register/urlRedirect/{{openUrl}}"
+                                      class="es-button" target="_blank"
+                                      style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Oswald, sans-serif;font-size:12px;color:#FFFFFF;border-style:solid;border-color:#10F459;border-width:25px 40px 25px 40px;display:inline-block;background:#10F459;border-radius:0px;font-weight:bold;font-style:normal;line-height:14px;width:auto;text-align:center">CONFIRM
+                                      ACCOUNT</a>
                                   </span>
                                   <!--<![endif]-->
                                 </td>
