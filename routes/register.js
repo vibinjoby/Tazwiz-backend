@@ -27,7 +27,7 @@ router.post("/createAccount", (req, res) => {
       .send("name, email and password are mandatory fields");
   try {
     // Create new account by calling mongo
-    db.createNewAccount(req.body).then(() => {
+    db.createNewAccount(name, email, password).then(() => {
       res.send({ output: "Account created successfully!!" });
     });
   } catch (err) {

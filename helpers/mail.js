@@ -7,7 +7,6 @@ async function sendMail(username, recepient) {
     var source = fs
       .readFileSync(process.env.PWD + "/views/mail.hbs", "utf-8")
       .toString();
-    console.log(source);
     const template = handlebars.compile(source);
 
     const replacements = {
