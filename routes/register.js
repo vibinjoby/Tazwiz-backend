@@ -55,13 +55,20 @@ router.post("/confirmationEmail", (req, res) => {
   }
 });
 
-router.get("/urlRedirect/:openUrl", (req, res) => {
-  const { openUrl } = req.params;
-  //Navigate to the uri to the app based on the url params
-  res.writeHead(302, {
-    Location: openUrl
-  });
-  res.end();
+router.post("/urlRedirect/", (req, res) => {
+  try {
+    console.log("called here");
+    const { openUrl } = req.body;
+    console.log(openUrl);
+    //Navigate to the uri to the app based on the url params
+    res.writeHead(302, {
+      Location: openUrl
+    });
+    res.end();
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
 });
 
 router.post("/confirmUserRegistration/:email", async (req, res) => {
