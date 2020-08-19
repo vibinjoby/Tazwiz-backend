@@ -55,15 +55,12 @@ router.post("/confirmationEmail", (req, res) => {
   }
 });
 
-router.get("/urlRedirect/:openUrl", (req, res) => {
+router.get("/urlRedirect/:email", (req, res) => {
   try {
-    const { openUrl } = req.params;
+    const { email } = req.params;
 
     //Navigate to the uri to the app based on the url params
-    res.writeHead(302, {
-      Location: `tazwiz://confirmation/${openUrl}`
-    });
-    res.end();
+    res.redirect(301, `tazwiz://confirmation/${email}`);
   } catch (error) {
     console.log(error);
     res.status(500).send(error);
