@@ -7,7 +7,7 @@
 
 <b>URL:</b> https://tazwiz-backend.herokuapp.com/login
 
-<b>Body:</b> username, password
+<b>Body:</b> emailId, password
 
 <b>Expected Response:</b> eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2xfdXNlcl9pZCI6MTcsImNvbF91c2VyX25hbWUiOiJ2aWJpbjciLCJjb2xfdXNlcl9lbWFpbCI6IjM2NDciLCJjb2xfdXNlcl9jcmVhdGVkX2RhdGUiOjIwMjAsImNvbF90ZW1wX3Bhc3N3b3JkIjoiIiwiaWF0IjoxNTk2NjgyOTA3fQ.wfss_txfA2nMC6zdVbt4uSoQNYxo-00nD5TsSWeW5vk(JWT Token)
 
